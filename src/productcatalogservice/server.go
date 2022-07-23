@@ -13,6 +13,7 @@
 // limitations under the License.
 
 package main
+import "github.com/newrelic/go-agent/v3/newrelic"
 
 import (
 	"bytes"
@@ -57,6 +58,10 @@ var (
 )
 
 func init() {
+	newrelic.NewApplication(
+		newrelic.ConfigAppName("demo-productcatalogue-ms"),
+		newrelic.ConfigLicense("154e6f8ed3f7998396fb901a1004c2ffFFFFNRAL"),
+	)
 	log = logrus.New()
 	log.Formatter = &logrus.JSONFormatter{
 		FieldMap: logrus.FieldMap{

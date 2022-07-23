@@ -49,4 +49,6 @@ COPY --from=builder /usr/local/lib/python3.7/ /usr/local/lib/python3.7/
 COPY . .
 
 EXPOSE 8080
-ENTRYPOINT [ "python", "email_server.py" ]
+ENTRYPOINT ["python", "email_server.py"]
+
+# , "NEW_RELIC_CONFIG_FILE=newrelic.ini", "newrelic-admin", "run-program"

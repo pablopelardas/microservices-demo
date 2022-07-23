@@ -13,6 +13,7 @@
 // limitations under the License.
 
 package main
+import "github.com/newrelic/go-agent/v3/newrelic"
 
 import (
 	"fmt"
@@ -44,6 +45,10 @@ const (
 var log *logrus.Logger
 
 func init() {
+	newrelic.NewApplication(
+		newrelic.ConfigAppName("demo-shippingservice-ms"),
+		newrelic.ConfigLicense("154e6f8ed3f7998396fb901a1004c2ffFFFFNRAL"),
+	)
 	log = logrus.New()
 	log.Level = logrus.DebugLevel
 	log.Formatter = &logrus.JSONFormatter{
